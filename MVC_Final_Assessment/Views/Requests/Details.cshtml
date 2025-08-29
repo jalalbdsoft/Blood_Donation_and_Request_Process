@@ -1,0 +1,87 @@
+﻿@model MVC_Final_Assessment.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_for_HomePage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup.BloodGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup.BloodGroupName)
+        </dd>
+
+    </dl>
+</div>
+@if (User.IsInRole("Admin"))
+{
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequestID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+}
+

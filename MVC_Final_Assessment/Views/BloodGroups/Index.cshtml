@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MVC_Final_Assessment.Models.BloodGroup>
+
+@{
+    ViewBag.Title = "Blood Groups";
+    Layout = "~/Views/Shared/_Layout_for_HomePage.cshtml";
+}
+
+<h2>List of Blood Groups</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BloodGroupID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BloodGroupID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BloodGroupID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["SuccessMessage"]',
+                    confirmButtonColor: '#3085d6'
+                });
+            </text>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: '@TempData["ErrorMessage"]',
+                    confirmButtonColor: '#d33'
+                });
+            </text>
+        }
+    </script>
+}

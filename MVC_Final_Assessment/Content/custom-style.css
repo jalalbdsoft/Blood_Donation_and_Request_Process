@@ -1,0 +1,85 @@
+.container-fluid {
+    margin: 0px -15px auto !important;
+}
+.jumbotron, .well{
+    border-radius:0px !important;
+}
+
+.jumbotron {
+    background-image: url('img/blood-banner.jpg');
+    background-position: center !important;
+    background-size: cover !important;
+    height: 400px !important;
+    color: #fff;
+    text-shadow: 0 0 19px #000000 !important;
+}
+.paralax_area {
+    background-image: url('img/blood-footer.jpg');
+    background-position: center !important;
+    background-size: cover !important;
+}
+.navbar-inverse {
+    background-color: #9b1818 !important;
+    border-color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff !important;
+    text-transform: uppercase !important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #9b1818;
+    border-color: #fff;
+    border-radius: 0px !important;
+}
+.btn-primary:hover {
+    color: #9b1818 !important;
+    background-color: #fff !important;
+    border-color: #9b1818 !important;
+    border-radius: 0px !important;
+}
+.about_us {
+    background-image: url('img/benifit.jpg');
+    background-position: center !important;
+    background-size: cover !important;
+    height:350px;   
+}
+.mt-5 {
+    margin-top: 80px !important;
+}
+.mt-4 {
+    margin-top: 50px !important;
+}
+.mt-3 {
+    margin-top: 30px !important;
+}
+
+.mb-5 {
+    margin-bottom: 80px !important;
+}
+
+.mb-4 {
+    margin-bottom: 50px !important;
+}
+
+.mb-3 {
+    margin-bottom: 30px !important;
+}
+.pb-5 {
+    padding-bottom: 80px !important;
+}
+h1,h2, h3 {
+    text-transform: capitalize !important;
+}
+h2, h3 {
+    color: #9b1818 !important;
+}
+.text-white {
+    color: #fff !important;
+}

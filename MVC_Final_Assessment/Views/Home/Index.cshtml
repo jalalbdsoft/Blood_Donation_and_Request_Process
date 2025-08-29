@@ -1,0 +1,129 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_for_HomePage.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Save Live</h1>
+            <p class="lead">Donating blood has benefits for your emotional and physical health. According to a report by the Mental Health Foundation, helping others can:</p>
+            <p><a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/blood-donation-simple-selfless-act-to-save-lives" class="btn btn-primary btn-lg" target="_blank">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about_us">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">benefits of donating blood</h2>
+                <p>
+                    Blood is high on demand globally. Human blood cannot be manufactured by industries. Blood can be received only from donors.
+
+                    There are a lot of myths surrounding donating blood. Donating blood has a lot of health benefits.
+
+                    Donating blood doesn’t just limit its benefits to the receiver but also offers health benefits to the donors.
+                </p>
+                <p><a class="btn btn-primary mt-3" href="https://www.healthline.com/health/benefits-of-donating-blood#benefits" target="_blank">Learn more &raquo;</a></p>
+            </div>
+
+        </div>
+    </div>
+    <hr />
+    <div class="container-fluid paralax_area pb-5">
+        <div class="container mt-5">
+            <div class="row text-center">
+                <h2 class="text-white">Emergency Blood Request</h2>
+                <hr />
+            </div>
+            <div class="row">
+                @foreach (var item in ViewBag.requests)
+                {
+                    <div class="col-md-4">
+                        <div class="well">
+                            <h2 style="min-height:100px !important">@item.MessageTitle</h2>
+                            <p>@item.MessageBody</p>
+                            <p>@item.ContactNo</p>
+                            <p>@item.Email</p>
+                            <p>@item.Address</p>
+                            <p>@item.RequestDate</p>
+                            <p><a class="btn btn-default" href="@Url.Action("Details", "Requests", new { id = item.RequestID })">Learn more &raquo;</a></p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pb-5">
+        <div class="container mt-5">
+            <div class="row text-center">
+                <h2 class="">Latest Post</h2>
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="well">
+                        <h2>Benefit of Blood Donation</h2>
+                        <p>
+                            Donating blood saves more lives than you’d think. According to Red Cross, there’s always at least one person in the United States who needs a blood donation every two seconds. This means hospitals need over 44,000 blood donations per day.
+                        </p>
+                        <p><a class="btn btn-primary" href="https://www.yudabands.org/healthy-to-donate-blood/?gad_source=1&gad_campaignid=21830710446&gbraid=0AAAAADDwJYPE8kcOSWAUSxod174XTcPy8&gclid=CjwKCAjwv5zEBhBwEiwAOg2YKIHClhg-1Iu9PMb6pHPSsFdMTXWCj1_tqde0GdHBF-2fSV46wHQGqhoCxcoQAvD_BwE" target="_blank">Read More &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="well">
+                        <h2>1 bag Blood can save 3 lives</h2>
+                        <p>
+                            WCBS creates various products based on the usage and need at any given time. However, one thing is certain: there is no substitute for blood. Thousands of patients and their families rely on the generosity and selflessness of donors like you.
+                        </p>
+                        <p><a class="btn btn-primary" href="https://www.wcbs.org.za/2024/11/28/the-ultimate-deal-how-one-blood-donation-can-save-up-to-three-lives/" target="_blank">Read More &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="well">
+                        <h2>A good Ensure Health Safety</h2>
+                        <p>
+                            According to the World Health Organization (WHO), integrated strategies of hemovigilance can substantially reduce the worldwide burden of disease from unsafe blood transmission. 3% of all HIV infections transmitted by contaminated blood.
+                        </p>
+                        <p><a class="btn btn-primary" href="https://www.news-medical.net/health/Insight-into-Blood-Safety.aspx" target="_blank">Read More &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["SuccessMessage"]',
+                    confirmButtonColor: '#3085d6'
+                });
+            </text>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: '@TempData["ErrorMessage"]',
+                    confirmButtonColor: '#d33'
+                });
+            </text>
+        }
+        </script>
+    }

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<MVC_Final_Assessment.Models.Request>
+
+@{
+    ViewBag.Title = "Blood Requests";
+    Layout = "~/Views/Shared/_Layout_for_HomePage.cshtml";
+}
+
+<h2>List of Blood Requests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MessageBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup.BloodGroupName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodGroup.BloodGroupName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RequestID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RequestID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '@TempData["SuccessMessage"]',
+                    confirmButtonColor: '#3085d6'
+                });
+            </text>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: '@TempData["ErrorMessage"]',
+                    confirmButtonColor: '#d33'
+                });
+            </text>
+        }
+    </script>
+}
+
